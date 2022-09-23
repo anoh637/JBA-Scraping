@@ -35,7 +35,7 @@ def get_url():
 
 def array():
     for card_url in get_url():
-        response = requests.request("GET", url)
+        response = requests.get(card_url)
         soup = BeautifulSoup(response.text, "lxml")
         data = soup.find("main", class_="_1_dLE _20mSp")     
         try:
