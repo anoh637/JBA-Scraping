@@ -13,18 +13,20 @@ headers = {"User-Agent":
 
 # 1.3. Connect to Website 
 def get_url(): # Looping Function
-    url = "https://www.olx.co.id/cipayung_g5000493/motor-bekas_c200?filter=make_eq_motor-bekas-honda" # Choose the page url's of your choosing
+    for count in range(1,3):
 
-    response = requests.get(url, headers=headers) # Here we request the url 
+        url = "https://www.olx.co.id/motor/bekas/?page={count}" # Choose the page url's of your choosing
 
-    soup = BeautifulSoup(response.text, "lxml") #html.parser
+        response = requests.get(url, headers=headers) # Here we request the url 
 
-    # Find Products in the url
-    data = soup.find_all("li", class_="EIR5N") # Here we put the class of each products, OLX has this class for their product list
+        soup = BeautifulSoup(response.text, "lxml") #html.parser
 
-    for i in data:
-        card_url = "https://www.olx.co.id/" + i.find("a").get("href") # Here we click each of the products in the product list
-        yield card_url
+        # Find Products in the url
+        data = soup.find_all("li", class_="EIR5N") # Here we put the class of each products, OLX has this class for their product list
+
+        for i in data:
+            card_url = "https://www.olx.co.id/" + i.find("a").get("href") # Here we click each of the products in the product list
+            yield card_url
 
 # 1.4. Connect to each url and get the data
 def array(): # Looping function
@@ -76,4 +78,4 @@ def array(): # Looping function
             post_description = data.find("p").text.strip()
         except:
             post_description = 'none'
-        yield brand, model, mileage, seller_type, price, year, area, post_title, post_date, post_description, card_url # Output
+        yield brand, model, mileage, seller_type, price, year, area, post_title, post_date, post_description, card_url # Output        
