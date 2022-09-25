@@ -1,4 +1,6 @@
-# 1.This is a single page scrapper for olx.co.id, the site does not have pagination. For mass scrapper refer to the file anoh.py
+# PREVIOUSLY: 1.This is a single page scrapper for olx.co.id, the site does not have pagination. For mass scrapper refer to the file anoh.py
+# EDIT: 1. This code can scrape in any given range of pages, I was able to scrapped until 40 items, awaiting time passing if able to scrapped 353 pages on the used motorcycle
+
 
 # 1.1.Import all the libraries needed
 # Before importing the libraries; on your terminal environment, install all the module: pip install requests, beautifulsoup4, lxml
