@@ -15,7 +15,7 @@ headers = {"User-Agent":
 
 # 1.3. Connect to Website 
 def get_url(): # Looping Function
-    for count in range(1,353):
+    for count in range(1,353): # Choose the length of pages. OLX might block the request if it is too much. 
 
         url = "https://www.olx.co.id/motor/bekas/?page={count}" # Choose the page url's of your choosing
 
